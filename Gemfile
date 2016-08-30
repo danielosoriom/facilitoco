@@ -31,6 +31,9 @@ gem 'json'
 gem 'haml'
 gem 'devise', github: "plataformatec/devise"
 gem 'omniauth-facebook'
+gem 'flexbox_rb'
+
+gem 'materialize-sass'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

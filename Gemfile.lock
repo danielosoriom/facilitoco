@@ -67,6 +67,7 @@ GEM
     faraday (0.9.2)
       multipart-post (>= 1.2, < 3)
     ffi (1.9.14)
+    flexbox_rb (0.2.7.1)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
     haml (4.0.7)
@@ -100,6 +101,8 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.6.4)
       mime-types (>= 1.16, < 4)
+    materialize-sass (0.97.7)
+      sass (~> 3.3)
     method_source (0.8.2)
     mime-types (3.1)
       mime-types-data (~> 3.2015)
@@ -212,12 +215,14 @@ DEPENDENCIES
   byebug
   coffee-rails (~> 4.2)
   devise!
+  flexbox_rb
   haml
   haml-rails
   jbuilder (~> 2.5)
   jquery-rails
   json
   listen (~> 3.0.5)
+  materialize-sass
   omniauth-facebook
   puma (~> 3.0)
   rails (~> 5.0.0)

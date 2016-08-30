@@ -6,16 +6,35 @@ class Users::OmniauthCallbacksController < ApplicationController
 		if @user.persisted?
 			@user.remember_me = true
 			sign_in_and_redirect @user, event: :authentication
+			return
 		end
-			session ["devise.auth"] = request.env["omniauth.auth"]
+
+		session["devise.auth"] = request.env["omniauth.auth"]
+
 		render :edit
-		return
-	
+
 	end
+
 	def custom_sign_up
 		@user = User.from_omniauth(session["devise.auth"])
-		@user.update(params[:user])
+		if @user.update(user_params)
+			sign_in_and_redirect @user, event: :authentication
+		else
+			render :edit
+		end
 
-		#Strong params
 	end
+
+	def failure
+		redirect_to new_user_session_path, notice: "No pudimos loguearte. Error: #{params[:error_description]}. Motivo: #{params[:error_reason]}"
+	end
+
+	private
+		def user_params
+			#Strong Params
+			params.require(:user).permit(:name,:username,:email)
+		end
+
+
+
 end

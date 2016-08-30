@@ -1,0 +1,9 @@
+%header.mdl-layout__header.mdl-layout__header--scroll
+  .mdl-layout__header-row
+    %span.mdl-layout-title FacilitoCo
+    .mdl-layout-spacer
+    %nav.mdl-navigation
+        =link_to "Cerrar sesión",destroy_user_session_path,method: :delete,class:"white-text"
+.mdl-layout__drawer
+  %span.mdl-layout-title FacilitoCo
+  %nav.mdl-navigation

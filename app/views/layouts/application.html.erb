@@ -3,12 +3,23 @@
   <head>
     <title>Facilitoco</title>
     <%= csrf_meta_tags %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= action_cable_meta_tag %>
+    <link rel="stylesheet" href="https://code.getmdl.io/1.2.0/material.blue-pink.min.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <script defer src="https://code.getmdl.io/1.2.0/material.min.js"></script>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   </head>
 
+
   <body>
-    <%= yield %>
+<div class="mdl-layout mdl-js-layout">
+      <%= render 'partials/nav' %>
+      <main class="mdl-layout__content">
+        <div class="page-content"><%= yield %></div>
+      </main>
+    </div> 
+     <p style="<%= 'display:none;' if notice.nil? && alert.nil? %>"><%= notice %><%= alert %></p>
+
   </body>
 </html>
